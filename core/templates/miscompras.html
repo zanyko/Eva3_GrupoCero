@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <hr>
+        <div class="admire-container">
+            <div class="form-title" style="margin-bottom: 15px;">
+                <h2>Visor de Obra</h2>
+            </div>
+            <span class="liner"></span>
+            <div class="admirePart">
+                <div class="admireDiv" style="border: 0; padding: 0; margin: 2vh;"> 
+                    <img src="{{ obra.imagen.url }}" class="card-image-top" style="height:15vw; border-radius: 15px; border:1px solid lightgreen">
+                </div>
+                <div class="admireDiv">
+                    <div>
+                        <div>
+                            <p class="pattribute">Nombre: </p>
+                            <p class="pvalue">{{obra.nombre}}</p>
+                        </div>
+                        <span class="aliner"></span>
+                        <div>
+                            <p class="pattribute">Categoría: </p>
+                            <p class="pvalue" >{{obra.categoria}}</p>
+                        </div>
+                    </div>
+                    <span class="aliner"></span>
+                    <div>
+                        <div>
+                            <p class="pattribute">Descripcion</p>
+                            <p class="pvalue" >{{obra.descripcion}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-grow-1 admireDiv">
+                    <div>
+                        <div>
+                            <p class="pattribute">Autor: </p>
+                            <p class="pvalue" >{{obra.autor}}</p>
+                        </div>
+                        <span class="aliner"></span>
+                        <div>
+                            <p class="pattribute">Año: <span class="pvalue">{{obra.anio}}</span></p>
+                        </div>
+                    </div>
+                    <span class="aliner"></span>
+                    <div>
+                        <div>
+                            <p class="pattribute">Stock: <span class="pvalue stock">{{obra.stock}}</span></p>
+                        </div>
+                        <div>
+                            <p class="pattribute">Precio: <span class="pvalue price"><span>$</span>{{obra.precio}}</span></p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div>
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'Add' obra.idObra %}" class="btn btn-outline-info btn-responsive">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                </svg>
+                                </span>
+                            </a>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

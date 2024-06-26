@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <hr>
+    <div class="admire-container">
+        <div class="form-title" style="margin-bottom: 15px;">
+            <h2>Eliminar Obra</h2>
+        </div>
+        <span class="liner"></span>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="admirePart">
+                <div class=""> 
+                    <img src="{{ obra.imagen.url }}" class="card-image-top" style="height:15vw; border-radius: 15px; border:1px solid lightgreen">
+                </div>
+                <div> 
+                    Nombre:<br>{{ obra.nombre }}
+                </div>
+                <div> 
+                    Id:<br>{{ obra.idObra }}
+                </div>
+            </div>
+            <div class="admirePart">
+                <div> 
+                    Descripción:<br>{{ obra.descripcion }}
+                </div>
+                <div> 
+                    Autor:<br>{{ obra.autor }}
+                </div>
+                <div> 
+                    Categoria:<br>{{ obra.categoria }}
+                </div>
+                <div> 
+                    Año:<br>{{ obra.anio }}
+                </div>
+                <div> 
+                    Stock:<br>{{ obra.stock }}
+                </div>
+                <div> 
+                    Precio:<br>{{ obra.anio }}
+                </div>
+            </div>
+            <div class="btn-center">
+                <input type="submit" value="Eliminar definitivamente" name="elimina" class="btn btn-outline-danger">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

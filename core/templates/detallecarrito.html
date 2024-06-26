@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="admire-container">
+            <div class="form-title" style="margin-bottom: 15px;">
+                <h2>Detalle de carrito</h2>
+            </div>
+            <span class="liner"></span>
+            <table id="tobras"> 
+                <thead>
+                    <tr>
+                        <th>Código Boleta</th>
+                        <th>Código Producto</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for v in obras %}
+                        <tr>
+                            <td>{{v.id_boleta}}</td>
+                            <td>{{v.id_obra}}</td>
+                            <td>{{v.cantidad}}</td>
+                            <td>{{v.subtotal}}</td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+                <hr>
+                <tr>
+                    <td>
+                        <h6>Total a pagar: {{total}}</h6>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}

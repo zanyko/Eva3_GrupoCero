@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <hr>
+        <div class="login-container">
+            <div class="form-title" style="margin-bottom: 15px;">
+                <h2>Buscar</h2>
+            </div>
+            <span class="liner"></span>
+            <div class="table-container">
+                <table id="tobras"> 
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Categoria</th>
+                            <th>Autor</th>
+                            <th>Año</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ve in obras %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'admire' ve.idObra %}">
+                                        <img src="{{ ve.imagen.url }}" style="height:9vw; border-radius: 15px; border:1px solid lightgreen">
+                                    </a>
+                                </td>
+                                <td><a href="{% url 'admire' ve.idObra %}" class="btn btn-outline-info">
+                                    {{ve.nombre}}</a></td>
+                                <td>{{ve.categoria}}</td>
+                                <td>{{ve.autor}}</td>
+                                <td>{{ve.anio}}</td>
+                                <td>{{ve.precio}}</td>
+                                <td>{{ve.stock}}</td>
+                            </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
