@@ -29,7 +29,7 @@
         <!--NAV-->
         <nav class="navbar navbar-expand-lg menu">
             <div class="container-fluid">
-                <a href="{% url 'index' %}" class="navbar-brand"></a>
+                <a href="{% url 'index' %}" class="navbar-brand">
                     <img id="logo" src="{% static 'assets/icons/logo_gc.png'%}" alt="logo_gc">
                 </a>
                 <button class="navbar-toggler btn-responsive" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,17 +74,19 @@
             </div>
             <div class="footerChico">
                 <div class="navr">
-                    <a href="{% url 'obras' %}">Obras Destacadas</a>
+                    <a href="{% url 'obras' %}">
+                        <span class="footer-text">Obras Destacadas</span>
+                    </a>
                 </div>
             </div>
             <div class="footerChico">
                 <div class="navr">
-                    <a href="{% url 'nosotros' %}">¿Quienes somos?</a>
+                    <a href="{% url 'nosotros' %}"><span class="footer-text">¿Quienes somos?</span></a>
                 </div>
             </div>
             <div class="footerChico">
                 <div class="navr">
-                    <u>Contacto</u><br>Av. Evergreen 2091<br>+56 9 63992921<br>consultas@groupzero.gz
+                    <span class="footer-text"><u>Contacto</u><br>Av. Evergreen 2091<br>+56 9 63992921<br>consultas@groupzero.gz</span>></span>
                 </div>
             </div>
         </footer>

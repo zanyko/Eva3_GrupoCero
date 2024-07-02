@@ -11,6 +11,7 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Precio</th>
+                        <th>Total item</th>
                         <th>Cantidad</th>
                     </tr>
                 </thead>
@@ -20,6 +21,7 @@
                             <tr>
                                 <td>{{value.nombre}}</td>
                                 <td>{{value.precio}}</td>
+                                <td>{{value.total}}</td>
                                 <td>
                                     <span style="margin-right:1vw;">{{value.cantidad}}</span>
                                     <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
@@ -30,7 +32,6 @@
                                 </td>
                             </tr>
                         {%endfor%}
-                    
                     {% else %}
                         <tr>
                             <td colspan="3">

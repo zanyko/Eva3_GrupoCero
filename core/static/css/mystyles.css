@@ -18,7 +18,8 @@ footer{
     border: 1px solid #5555553d;
     background: rgba(0, 0, 0, 0.5);
     margin-top: 50px;
-    padding:20px;
+    padding:4vh;
+    padding-bottom: 15vh;
 }
 .divMessage{
     display: flex;
@@ -193,6 +194,7 @@ footer{
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(56, 56, 56, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 #logo{
+    border-radius: 10px;
     max-width: 42vh;
     display: table;
     width: 100%;
@@ -256,10 +258,14 @@ a.nav-link.dropdown-toggle.show{
 
 /*_________________________________________________*/
 /*____________________CARRUSEL_____________________*/
+.slide{
+    max-width: 600px;
+    margin: 0 auto;
+}
 .centro{
     display: block;
     margin: 0 auto;
-    width: 80%;
+    align-items: center;
     margin-bottom: 6vh;
 }
 .carousel-inner{
@@ -297,8 +303,21 @@ a.nav-link.dropdown-toggle.show{
 
 /*_________________________________________________*/
 /*______________________CARDS______________________*/
+.thumbs-container-desktop {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.thumb-container-wallpaper-desktop {
+    position: relative;
+}
+img.thumb {
+    border-radius: 10px 10px 0px 0px;
+}
+
 .card{
     border-radius: 30px !important;
+    border: 1px solid rgb(50, 83, 50) !important;
     color: rgb(67, 196, 35);
     background-color: rgba(32, 33, 64, 0) !important;
     -webkit-backdrop-filter: blur(100px) !important;
@@ -309,12 +328,21 @@ a.nav-link.dropdown-toggle.show{
     p{font-style: italic;}
 }
 .card-img-top{
-    object-fit: contain;
+    
+        width:100%;
+        height:auto;
+
+    
+    border-top-left-radius: 30px !important;
+    border-top-right-radius: 30px !important;
 }
 .card-body{
     display: flex;
     flex-direction: column;
     justify-content: center !important;
+}
+.card-text {
+    color: rgb(67, 196, 35);
 }
 .price{
     color: #09e6b9 !important;
@@ -377,6 +405,7 @@ a.nav-link.dropdown-toggle.show{
 }
 /*_____________________BUTTONS_____________________*/
 .form-submit-btn{
+    font-size: 1vw;
     margin-top: 40px;
     margin-bottom: 20px;
     text-align: center;
@@ -385,7 +414,7 @@ a.nav-link.dropdown-toggle.show{
     }
 }
 .btn-outline-info, .btn-outline-warning, .btn-outline-danger{
-    font-size: 2vh !important;
+    font-size: 2vh;
 }
 .btn-center{
     display:flex;
@@ -453,6 +482,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0,0,0,0.3);
     margin-top: 20px;
     margin-left: 20px;
     padding: 10px;
@@ -465,7 +495,7 @@ button:hover {
 } 
 .footerChico:hover{
     color: aquamarine;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.5);
     text-decoration: none;
     font-style: italic;
     border: 1px solid rgb(64, 150, 184);
@@ -473,9 +503,10 @@ button:hover {
 .navr{
     color:lightgreen;
     text-align: center;
-    font-size: 3vh;
     transition: background-color 0.3s ease;
-    
+}
+.footer-text {
+    font-size: 1vw;
 }
 /*_________________________________________________*/
 /*___________________Check_________________________*/
@@ -525,11 +556,42 @@ select{
         text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
     }
 }
-.table-container{
+@media (max-width:650px){
+    th {
+        display: none;
+    }
+    td {
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: 15ch auto;
+        padding: 0.5rem 1rem;
+    }
+    td:first-child{
+        padding-top: 2rem;
+    }
+    td:last-child{
+        padding-bottom: 2rem;
+    }
+    td:after {
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    td:nth-of-type(1)::before{
+        content: "name";
+    }
+
+}
+.table-container {
+    max-width: 100%;
+    overflow-x: scroll;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     border:1px solid #555;
     padding:1rem;
+}
+.wrapper {
+    width: min(900px, 100% - 3rem);
+    margin-inline: auto;
 }
 table {
     border-collapse: collapse;
@@ -538,24 +600,28 @@ table {
     background-color: rgba(0, 0, 0, 0);
     font-size: 2vh;
 }
-thead{
+thead {
     text-align: center;
 }
-th{
+th {
+    text-align: left !important;
+    display: relative;
     font-size: 2.5vh;
     font-style: italic;
 }
-td{
+td {
+    display: relative;
     white-space: wrap;
     text-overflow: ellipsis;
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
     max-width: 3rem;
 }
 td img{
     border-radius:15px; 
     border:1px solid lightgreen;
-    height:9vw;
+    max-width: 100%;
+    height: auto;
 }
 /*_________________________________________________*/
 /*____________________ADMIRE________________________*/
@@ -569,22 +635,11 @@ td img{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.6);
 }
-.admirePart{
-    background-color: rgba(0, 0, 0, 0.5);
-    display:flex;
-    justify-content: space-evenly;
-    margin-top:2vh;
-    border-radius: 10px;
-    border: 1px solid #555;
-    padding: 5vh;
-    color:lightgreen
-}
-.admireDiv{
+.admirePerfil{
     font-family: 'Ubuntu', light;
-    border-radius: 10px;
     border:1px solid #5555557e;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     padding: 3vw;
     margin: 2vh;
     img{
@@ -594,6 +649,47 @@ td img{
         margin-bottom: 2vh;
     }
 }
+.admirePrl {
+    display: flex;
+    flex-direction: column;
+}
+.admirePrl2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 5vw;
+}
+.admirePart{
+    background-color: rgba(0, 0, 0, 0.5);
+    display:flex;
+    flex-direction: column;
+    margin-top:2vh;
+    border-radius: 10px;
+    border: 1px solid #555;
+    color:lightgreen
+}
+.admireDiv1{
+    font-family: 'Ubuntu', light;
+    display: flex;
+    justify-content: space-around;
+    padding: 2vw;
+    margin: 1vh;
+    img{
+        height: 80px;
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid lightgreen;
+        margin-bottom: 2vh;
+    }
+}
+.admireDiv2{
+    font-family: 'Ubuntu', light;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw;
+    margin: 1vh;
+}
+
 .pic-user{
     width: 10vw;
     border-radius: 50%;
@@ -667,13 +763,13 @@ img:hover{
     border-radius: 15px;
     border:1px solid #555;
     padding:1rem;
-    th{
+    
+}
+.tobras th, td{
         font-size: 2vh;
         font-style: italic;
-    }
-    td{
+        text-align: left;
         font-size: 1vw !important;
-    }
 }
 .carro-title a{
     display: flex;
@@ -688,4 +784,26 @@ img:hover{
 .carro-title a:hover{
     color: #09e67f;
     font-style: italic;
+}
+
+.quote-container {
+    display: block;
+    margin: 0 auto;
+    max-width: 60%;
+    padding: 2vw;
+    border-radius: 15px;
+    border: 1px solid #5555552a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+    font-style: italic;
+    font-family: 'Ubuntu';
+}
+.quote-author {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(56, 128, 56);
+    text-shadow: 1px 1px 3px rgb(5, 5, 5);
+}
+.quote {
+    color: rgb(79, 187, 79);
+    text-shadow: 1px 1px 3px rgb(5, 5, 5);
 }

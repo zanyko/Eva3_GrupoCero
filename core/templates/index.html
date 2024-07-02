@@ -1,77 +1,83 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <div class="divDelMain">
-        <span class="visortexto">
-            <h1>Obras de alta calidad</h1>
-        </span>
-    </div>
-    <!-- ---------------CARRUSEL---------------- -->
+<div class="divDelMain">
+    <span class="visortexto">
+        <h1>Obras de alta calidad</h1>
+    </span>
+</div>
+<!-- ---------------CARRUSEL---------------- -->
+<div class="container">
     <div class="centro">
-        <div class="container">
-            <div id="demo" class="carousel slide" data-bs-ride="carousel">
-                <!-- punteros -->
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
-                </div>
-                <!-- imagenes -->
-                <div class="carousel-inner">
-                    <div class="carousel-item c-item active">
-                        <a href="obras.html" target="_self">
-                            <img src="{% static 'assets/img/bobross/bobRoss01.webp' %}" alt="obras1" class="d-block w-100 c-img" >
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>Pinturas de alta calidad</h3>
-                        </div>
-                    </div>
-                    <div class="carousel-item c-item">
-                        <a href="obras.html" target="_self">
-                            <img src="{% static 'assets/img/bobross/bobRoss02.jpg' %}" alt="obras2" class="d-block w-100 c-img">
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>Paisajes</h3>
-                        </div>
-                    </div>
-                    <div class="carousel-item c-item">
-                        <a href="obras.html" target="_self">
-                            <img src="{% static 'assets/img/esculturas/esculturas1.jpg' %}" alt="obras3" class="d-block w-100 c-img">
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>Esculturas</h3>
-                        </div>
-                    </div>
-                    <div class="carousel-item c-item">
-                        <a href="obras.html" target="_self">
-                            <img src="{% static 'assets/img/paisajes/paisaje08.jpg' %}" alt="obras4" class="d-block w-100 c-img">
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>Pinturas al óleo</h3>
-                        </div>
-                    </div>
-                    <div class="carousel-item c-item">
-                        <a href="obras.html" target="_blank">
-                            <img src="{% static 'assets/img/orfebreria/orfebreria.jpg' %}" alt="obras5" class="d-block w-100 c-img">
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>Orfebrería</h3>
-                        </div>
-                    </div>
-                </div>
-                <!-- izquierda y derecha -->
-                <!-- left -->  
-                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <!-- right  -->  
-                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <!-- punteros -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
             </div>
+            <!-- imagenes -->
+            <div class="carousel-inner">
+                <div class="carousel-item c-item active">
+                    <a href="{% url 'admire' 1 %}">
+                        <img src="{% static 'assets/img/bobross/bobRoss01.webp' %}" alt="obras1" class="d-block w-100 c-img" >
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Pinturas de alta calidad</h3>
+                    </div>
+                </div>
+                <div class="carousel-item c-item">
+                    <a href="{% url 'admire' 5 %}">
+                        <img src="{% static 'assets/img/bobross/bobRoss02.jpg' %}" alt="obras2" class="d-block w-100 c-img">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Paisajes</h3>
+                    </div>
+                </div>
+                <div class="carousel-item c-item">
+                    <a href="{% url 'admire' 2 %}">
+                        <img src="{% static 'assets/img/esculturas/esculturas1.jpg' %}" alt="obras3" class="d-block w-100 c-img">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Esculturas</h3>
+                    </div>
+                </div>
+                <div class="carousel-item c-item">
+                    <a href="{% url 'admire' 9 %}">
+                        <img src="{% static 'assets/img/paisajes/paisaje08.jpg' %}" alt="obras4" class="d-block w-100 c-img">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Pinturas al óleo</h3>
+                    </div>
+                </div>
+                <div class="carousel-item c-item">
+                    <a href="{% url 'admire' 3 %}">
+                        <img src="{% static 'assets/img/orfebreria/orfebreria.jpg' %}" alt="obras5" class="d-block w-100 c-img">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Orfebrería</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- izquierda y derecha -->
+            <!-- left -->  
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <!-- right  -->  
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
     </div>
-    <hr>
+</div>
+<hr>
+<div class="quote-container">
+    <div id="quote" class="quote"></div><br>
+    <div id="author" class="quote-author"></div>
+</div>
+<hr>
+<script type="module" src="{% static 'js/aplik.js' %}"></script>
 {% endblock %}

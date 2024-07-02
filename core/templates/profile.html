@@ -9,15 +9,15 @@
         </div>
         <span class="liner"></span>
         {% if user.is_authenticated %}
-        <div class="admireDiv flex-row">
-            <div class="d-flex flex-column"> 
+        <div class="admirePerfil">
+            <div class="admirePrl"> 
                 <img class="pic-profile" src="{{ user.pic.url }}">
                 <div>
                     <p class="pattribute">Usuario: </p>
                     <p class="pvalue">{{user.username}}</p>
                 </div>
             </div>
-            <div class="d-flex flex-column flex-grow-1" style="padding-left:4vw;">
+            <div class="admirePrl2">
                 <div>
                     <p class="pattribute">Nombre: </p>
                     <p class="pvalue" >{{user.first_name}}</p>
@@ -31,13 +31,11 @@
                     <p class="pvalue">{{user.email}}</p>
                 </div>
             </div>
-            <div class="d-flex align-items-end">
-                <div>
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'profileMod' %}" class="btn btn-outline-info btn-responsive">Modificar Perfil</a>
-                    {% endif %}
-                </div>
-            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            {% if user.is_authenticated %}
+                <a href="{% url 'profileMod' %}" class="btn btn-outline-info" style="font-size: 2vh;">Modificar Perfil</a>
+            {% endif %}
         </div>
         {% endif %}
     </div>

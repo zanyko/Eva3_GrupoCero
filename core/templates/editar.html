@@ -9,41 +9,39 @@
             </div>
             <span class="liner"></span>
             <div class="table-container">
-                <div style="overflow-x:auto;">
-                    <table id="tobras"> 
-                        <thead>
+                <table id="tobras"> 
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Categoria</th>
+                            <th>Autor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ve in obras %}
                             <tr>
-                                <th>Imagen</th>
-                                <th>Nombre</th>
-                                <th>Categoria</th>
-                                <th>Autor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for ve in obras %}
-                                <tr>
+                                <td>
+                                    <a href="{% url 'admire' ve.idObra %}">
+                                        <img src="{{ ve.imagen.url }}" >
+                                    </a>
+                                </td>
+                                <td><a href="{% url 'admire' ve.idObra %}" class="btn btn-outline-info">
+                                    {{ve.nombre}}</a></td>
+                                <td>{{ve.categoria}}</td>
+                                <td>{{ve.autor}}</td>
+                                {% if user.is_staff %}
                                     <td>
-                                        <a href="{% url 'admire' ve.idObra %}">
-                                            <img src="{{ ve.imagen.url }}" >
-                                        </a>
+                                        <div class="d-flex flex-direction-column flex-wrap">
+                                            <a href="{% url 'modificar' ve.idObra %}" class="btn btn-outline-warning">Editar</a>
+                                            <a href="{% url 'eliminar' ve.idObra %}" class="btn btn-outline-danger" style="margin-top:1vh;" >Borrar</a>
+                                        </div>
                                     </td>
-                                    <td><a href="{% url 'admire' ve.idObra %}" class="btn btn-outline-info">
-                                        {{ve.nombre}}</a></td>
-                                    <td>{{ve.categoria}}</td>
-                                    <td>{{ve.autor}}</td>
-                                    {% if user.is_staff %}
-                                        <td>
-                                            <div class="flexbox-c">
-                                                <a href="{% url 'modificar' ve.idObra %}" class="btn btn-outline-warning">Editar</a>
-                                                <a href="{% url 'eliminar' ve.idObra %}" style="margin-top:1vh;" class="btn btn-outline-danger">Borrar</a>
-                                            </div>
-                                        </td>
-                                    {% endif %}
-                                </tr>
-                            {%endfor%}
-                        </tbody>
-                    </table>
-                </div> 
+                                {% endif %}
+                            </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
