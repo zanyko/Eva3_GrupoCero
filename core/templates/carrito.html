@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% if request.session.carrito.items %}
+                    {% if request.session.carrito %}
                         {% for key, value in request.session.carrito.items %}
                             <tr>
                                 <td>{{value.nombre}}</td>
@@ -24,6 +24,7 @@
                                 <td>{{value.total}}</td>
                                 <td>
                                     <span style="margin-right:1vw;">{{value.cantidad}}</span>
+                                    <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
                                     <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
                                     <a href="{% url 'Del' value.producto_id %}"><span class=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
@@ -42,11 +43,15 @@
                 </tbody>
             </table>
         </div>
+        <div class="totalapagar">Total a pagar:  ${{total_carrito}}</div>
         <span class="liner"></span>
         <div class="row text-center">
             <div class="d-flex justify-content-around">
-                <a href="{% url 'CLS' %}" class="btn btn-outline-warning btn-responsive">Limpiar</a>
-                <a href="{% url 'generarBoleta' %}" class="btn btn-outline-info btn-responsive">Comprar</a>
+                <a href="{% url 'CLS' %}" class="btn btn-outline-warning btn-responsive" title="Vacíe su carrito">Limpiar</a>
+                <form method="POST" action="{% url 'generarBoleta' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-info btn-responsive" title="Genere su boleta">Comprar</button>
+                </form>
             </div>
         </div>
     </div>

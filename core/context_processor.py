@@ -1,11 +1,13 @@
 def total_carrito(request):
     total=0
-    if request.user in request.session:
+    if request.user.is_authenticated:
         try:
-            if "carrito" in request.session.keys():
-                for key, value in request.session["carrito"].items():
+            carrito = request.session['carrito']
+            if "carrito" in request.session:
+                for key, value in carrito.items():
                     total+=(int(value["precio"]))*(value["cantidad"])
         except:
-            request.session['carrito']={}
+            print('------EL TRY NO FUNCIONO EN------')
+            print('------- CONTEXT_PROCESSOR -------')
             total=0
     return {'total_carrito':int(total)}

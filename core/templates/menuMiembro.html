@@ -16,6 +16,15 @@
                 <a  class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
             </li>
             {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'buscar' %}">Ver productos</a></li>
+                        <li><a class="dropdown-item" href="{% url 'carrito2' %}">Carrito</a></li>
+                        <li><a class="dropdown-item" href="{% url 'miscompras' %}">Mis Compras</a></li>
+                    </ul>
+                </li>
                 {% if user.is_staff %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu Miembro
@@ -23,7 +32,10 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'crear' %}">Crear</a></li>
                             <li><a class="dropdown-item" href="{% url 'editar' %}">Modificar/Eliminar</a></li>
-                            <li><a class="dropdown-item" href="{% url 'carrito2' %}">Carrito</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">Ver mi Perfil</a></li>
+                            {% if user.is_superuser %}
+                                <li><a class="dropdown-item" href="{% url 'usuarios' %}">Usuarios</a></li>
+                            {% endif %}
                         </ul>
                     </li>
                 {% endif %}

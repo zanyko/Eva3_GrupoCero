@@ -4,35 +4,29 @@
     <div class="container">
         <div class="admire-container">
             <div class="form-title" style="margin-bottom: 15px;">
-                <h2>Detalle de carrito</h2>
+                <h2>Compra de productos</h2>
             </div>
             <span class="liner"></span>
-            <table id="tobras"> 
-                <thead>
-                    <tr>
-                        <th>Código Boleta</th>
-                        <th>Código Producto</th>
-                        <th>Cantidad</th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for v in obras %}
-                        <tr>
-                            <td>{{v.id_boleta}}</td>
-                            <td>{{v.id_obra}}</td>
-                            <td>{{v.cantidad}}</td>
-                            <td>{{v.subtotal}}</td>
-                        </tr>
-                    {%endfor%}
-                </tbody>
-                <hr>
-                <tr>
-                    <td>
-                        <h6>Total a pagar: {{total}}</h6>
-                    </td>
-                </tr>
-            </table>
+            <div class="detallecarrito">
+                <div>
+                    <p>Usuario:</p>
+                    <p class="price">{{ boleta.usuario.username }}</p>
+                </div>
+                <div>
+                    <p>Fecha de Compra:</p>
+                    <p class="price">{{ boleta.fecha }}</p>
+                </div>
+                <div>
+                    <p>Total:</p>
+                    <p class="price">{{ boleta.total }}</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-around" style="margin-top: 20px;">
+                <form method="POST" action="{% url 'comprar' boleta.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-info btn-responsive">Comprar</button>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}

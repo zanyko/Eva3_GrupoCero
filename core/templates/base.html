@@ -37,7 +37,7 @@
                 </button>
                 {% if user.is_authenticated %}
                     {% if user.is_staff %}
-                        {% include 'menuAdmin.html' %}
+                        {% include 'menuMiembro.html' %}
                     {% else %}
                         {% include 'menuCliente.html' %}
                     {% endif %}

@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'widget_tweaks',
-    'core', # enlazamos la aplicacion creada por el cmd
+    'core', 
+    'rest_framework',
+    'api', 
 ]
 CRISPY_TEMPLATE_PACK='bootstrap4'
 

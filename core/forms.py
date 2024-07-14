@@ -4,7 +4,7 @@ from django.forms import widgets
 from django.forms.widgets import Widget
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Categoria, Obra, CustomUser
+from .models import *
 
 class RegistroUserForm(UserCreationForm):
     pic = forms.ImageField(required=False)

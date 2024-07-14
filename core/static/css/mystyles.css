@@ -346,6 +346,7 @@ img.thumb {
 }
 .price{
     color: #09e6b9 !important;
+    font-style: italic;
 }
 .stock{
     color: #09e67f;
@@ -589,6 +590,15 @@ select{
     border:1px solid #555;
     padding:1rem;
 }
+.img-table {
+    height: 6rem; 
+    border-radius: 50%;
+    border:1px solid lightgreen;
+}
+.td-a-profile {
+    text-decoration: none;
+    color:#12cfb0;
+}
 .wrapper {
     width: min(900px, 100% - 3rem);
     margin-inline: auto;
@@ -784,6 +794,23 @@ img:hover{
 .carro-title a:hover{
     color: #09e67f;
     font-style: italic;
+}
+.totalapagar {
+    display: flex;
+    justify-content: center;
+    font-style: italic; 
+    color:#09e67f;
+    padding:10px;
+}
+.detallecarrito{
+    background-color: rgba(0, 0, 0, 0.5);
+    display:flex;
+    justify-content: space-around;
+    margin-top:2vh;
+    border-radius: 10px;
+    border: 1px solid #555;
+    color:lightgreen;
+    padding: 30px;
 }
 
 .quote-container {
