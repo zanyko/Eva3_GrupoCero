@@ -1,4 +1,4 @@
-Hola profesora! le dejo el superuser:
+Updated december 3rd, 2025
 
 user: admin
 password: viceraes
@@ -10,27 +10,3 @@ password: viceraes
 
 
 También, si entra como admin, puede asignar usuarios como cliente o miembro.
-
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-REQUERIMIENTOS PARA INSTALAR POR CONSOLA:
-Django==4.1.2
-
-
-npm install django
-
-npm install bootstrap@4.6.0
-
-pip install pillow
-
-pip install crispy
-
-pip install django-crispy-forms
-
-pip install crispy-bootstrap4
-
-pip install django-widget-tweaks
-
-pip install djangorestframework
-
